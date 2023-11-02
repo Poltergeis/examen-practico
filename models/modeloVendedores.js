@@ -31,13 +31,11 @@ const modeloVendedores = mongoose.Schema({
     vehiculosEnVenta: {
         type: {
             vehiculo: {
-                idVehiculo: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Vehiculos'
-                },
-                descripcionGeneral: String //atributo que se construira automaticamente en las consultas
-            }
-        }
+            },
+        },
+        required: false
     },
     ventas: {
         type: {
@@ -69,7 +67,8 @@ const modeloVendedores = mongoose.Schema({
               },
               message: 'El valor de "costo" debe ser igual a la suma de "pagado" y "adeudo".'
             }
-          ]
+          ],
+          required: false
     },
     devoluciones: {
         type: {
@@ -82,13 +81,13 @@ const modeloVendedores = mongoose.Schema({
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Vehiculos'
                 },
-                cantidadDevuelta: {
+                importeDevuelto: {
                     type: Number,
                     required: true
                 }
             }
         },
-        required: true
+        required: false
     }
 });
 

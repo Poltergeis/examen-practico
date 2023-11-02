@@ -1,12 +1,16 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const rutasClientes = require("./routes/rutasClientes");
+const rutasVehiculos = require("./routes/rutasVehiculo");
 
 app.listen(3000, () => {
     console.log('Servidor en ejecución en el puerto 3000');
   });
 
   app.use(express.json());
+  app.use('/cliente', rutasClientes);
+  app.use('/vehiculo', rutasVehiculos);
   
   mongoose.connect('mongodb://127.0.0.1:27017/Concesionaria', {
     useNewUrlParser: true,

@@ -17,7 +17,7 @@ const modeloClientes = mongoose.Schema({
         type: String,
         validate: {
             validator: function(value) {
-                const formatoValido = '/^(\d{3}-\d{3}-\d{4}|\d{3}-\d{3}-\d{2}-\d{2})$/';
+                const formatoValido = /^(\d{3}-\d{3}-\d{4}|\d{3}-\d{3}-\d{2}-\d{2})$/;
               return formatoValido.test(value);
             },
             message: props => `${props.value} es un formato de numero telefonico incorrecto, los formatos aceptados son XXX-XXX-XXXX o XXX-XXX-XX-XX".`
