@@ -10,7 +10,7 @@ const modeloVendedores = mongoose.Schema({
         required: true
     },
     asociaciones:{
-        type: {
+        type: [{
             marcas: {
                 nombreMarca: {
                     type: String,
@@ -25,20 +25,20 @@ const modeloVendedores = mongoose.Schema({
                     required: false
                 }
             },
-        },
+        }],
         required: false
     },
     vehiculosEnVenta: {
-        type: {
+        type: [{
             vehiculo: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Vehiculos'
             },
-        },
+        }],
         required: false
     },
     ventas: {
-        type: {
+        type: [{
             venta: {
                 _id: mongoose.Schema.Types.ObjectId,
                 idCliente: {
@@ -59,7 +59,7 @@ const modeloVendedores = mongoose.Schema({
                     required: true
                 }
             }
-        },
+        }],
         validate: [
             {
               validator: function(venta) {
@@ -71,7 +71,7 @@ const modeloVendedores = mongoose.Schema({
           required: false
     },
     devoluciones: {
-        type: {
+        type: [{
             devolucion: {
                 idCliente: {
                     type: mongoose.Schema.Types.ObjectId,
@@ -86,7 +86,7 @@ const modeloVendedores = mongoose.Schema({
                     required: true
                 }
             }
-        },
+        }],
         required: false
     }
 });

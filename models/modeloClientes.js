@@ -26,10 +26,10 @@ const modeloClientes = mongoose.Schema({
     },
     historialCompras: {
         type: {
-            compra:{
+            compra:[{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: 'vendedores.ventas'
-            }
+            }]
         },
         required: false
     }
